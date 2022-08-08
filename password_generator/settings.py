@@ -56,17 +56,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'password_generator.wsgi.application'
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE'),
-        'USER': env('USER_DB'),
-        'PASSWORD': env('PASSWORD_DB'),
-        'HOST': env('HOST_DB'),
-        'PORT': env('PORT_DB'),
+if env('DB') == 'postgres':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': env('DATABASE'),
+            'USER': env('USER_DB'),
+            'PASSWORD': env('PASSWORD_DB'),
+            'HOST': env('HOST_DB'),
+            'PORT': env('PORT_DB'),
+        }
     }
-}
+elif env('DB') == 'sqlite':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 AUTH_PASSWORD_VALIDATORS = [
