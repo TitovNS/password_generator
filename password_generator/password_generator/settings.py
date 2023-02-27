@@ -12,7 +12,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = env("DEBUG") == 'True'
 
-ALLOWED_HOSTS = ['pass.my-cv.xyz']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
