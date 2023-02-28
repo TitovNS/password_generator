@@ -132,4 +132,5 @@ dmypy.json
 
 .env.db
 .env
-staticfiles_pass/
+staticfiles/
+media/
